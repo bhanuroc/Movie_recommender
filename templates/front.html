@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie-Recommender</title>
+        <style>
+            .movielist{
+                width: 600px;
+                height: 400px;
+                background-color: rgb(37, 71, 134);
+                overflow: hidden;
+                overflow-y: scroll;
+                margin: auto;
+                color: cornsilk;
+            }
+            .in{
+                margin: auto;
+                text-align: center;
+            }
+            input{
+                background-color: rgb(255, 255, 255);
+                color: rgb(255,0,0);
+                margin: auto;
+                width: 300px;
+                text-align: center;
+            }
+            .but{
+                background-color: rgb(0, 0, 0);
+                color: cornsilk;
+                margin: auto;
+                width: 150px;
+                height: 30px;
+                text-align: center;
+            }
+            h1{
+                color: rgb(233, 134, 20);
+                margin: auto;
+                text-align: center;
+                text-decoration: underline;
+            }
+            .result{
+                text-align: center;
+                color: sienna;
+                padding-top: 3%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Select Movies</h1>
+        <br><br>
+        <form action="/recommend" method="POST">
+            <div class="in">
+                <input type="text" name="movie" placeholder="eg:Avengers">
+            </div>
+            <br><br>
+            <div class="movielist">
+                (500) Days of Summer (2009)<br>
+                10 Things I Hate About You (1999)<br>
+                10,000 BC (2008)<br>
+                101 Dalmatians (1996)<br>
+                101 Dalmatians (One Hundred and One Dalmatians) (1961)<br>
+                12 Angry Men (1957)<br>
+                13 Going on 30 (2004)<br>
+                13th Warrior, The (1999)<br>
+                1408 (2007)<br>
+                1984 (Nineteen Eighty-Four) (1984)<br>
+                2 Days in the Valley (1996)<br>
+                2 Fast 2 Furious (Fast and the Furious 2, The) (2003)<br>
+                20,000 Leagues Under the Sea (1954)<br>
+                2001: A Space Odyssey (1968)<br>
+                2010: The Year We Make Contact (1984)<br>
+                21 (2008)<br>
+                21 Grams (2003)<br>
+                25th Hour (2002)<br>
+                27 Dresses (2008)<br>
+                28 Days (2000)<br>
+                28 Days Later (2002)<br>
+                28 Weeks Later (2007)<br>
+                3:10 to Yuma (2007)<br>
+                30 Days of Night (2007)<br>
+                300 (2007)<br>
+                39 Steps, The (1935)<br>
+                40 Days and 40 Nights (2002)<br>
+                400 Blows, The (Les quatre cents coups) (1959)<br>
+                40-Year-Old Virgin, The (2005)<br>
+                48 Hrs. (1982)<br>
+                50 First Dates (2004)<br>
+                6th Day, The (2000)<br>
+                8 1/2 (8?) (1963)<br>
+                8 Mile (2002)<br>
+                8MM (1999)<br>
+                9 (2009)<br>
+                A.I. Artificial Intelligence (2001)<br>
+                About a Boy (2002)<br>
+                About Schmidt (2002)<br>
+                Absolute Power (1997)<br>
+                Abyss, The (1989)<br>
+                Accepted (2006)<br>
+                Ace Ventura: Pet Detective (1994)<br>
+                Ace Ventura: When Nature Calls (1995)<br>
+                Across the Universe (2007)<br>
+                Adaptation (2002)<br>
+                Addams Family Values (1993)<br>
+                Addams Family, The (1991)<br>
+                Adventureland (2009)<br>
+                Adventures in Babysitting (1987)<br>
+                Adventures of Baron Munchausen, The (1988)<br>
+                Adventures of Buckaroo Banzai Across the 8th Dimension, The (1984)<br>
+                Adventures of Priscilla, Queen of the Desert, The (1994)<br>
+                Aeon Flux (2005)<br>
+                African Queen, The (1951)<br>
+                Age of Innocence, The (1993)<br>
+                Air Force One (1997)<br>
+                Airheads (1994)<br>
+                Airplane II: The Sequel (1982)<br>
+                Airplane! (1980)<br>
+                Akira (1988)<br>
+                Aladdin (1992)<br>
+                Aladdin and the King of Thieves (1996)<br>
+                Alice in Wonderland (1951)<br>
+                Alien (1979)<br>
+                Alien? (a.k.a. Alien 3) (1992)<br>
+                Alien Nation (1988)<br>
+                Alien: Resurrection (1997)<br>
+                Aliens (1986)<br>
+                All About Eve (1950)<br>
+                All About My Mother (Todo sobre mi madre) (1999)<br>
+                All Dogs Go to Heaven (1989)<br>
+                All Dogs Go to Heaven 2 (1996)<br>
+                All the President's Men (1976)<br>
+                Almost Famous (2000)<br>
+                Along Came a Spider (2001)<br>
+                Along Came Polly (2004)<br>
+                Amadeus (1984)<br>
+                Amelie (Fabuleux destin d'Am?lie Poulain, Le) (2001)<br>
+                American Beauty (1999)<br>
+                American Gangster (2007)<br>
+                American Graffiti (1973)<br>
+                American History X (1998)<br>
+                American in Paris, An (1951)<br>
+                American Pie (1999)<br>
+                American Pie 2 (2001)<br>
+                American President, The (1995)<br>
+                American Psycho (2000)<br>
+                American Splendor (2003)<br>
+                American Tail, An (1986)<br>
+                American Wedding (American Pie 3) (2003)<br>
+                American Werewolf in London, An (1981)<br>
+                America's Sweethearts (2001)<br>
+                Amistad (1997)<br>
+                Amityville Horror, The (1979)<br>
+                Amores Perros (Love's a Bitch) (2000)<br>
+                Anaconda (1997)<br>
+                Analyze This (1999)<br>
+                Anastasia (1997)<br>
+                Anchorman: The Legend of Ron Burgundy (2004)<br>
+                And Your Mother Too (Y tu mam? tambi?n) (2001)<br>
+                Angels & Demons (2009)<br>
+                Angels in the Outfield (1994)<br>
+                Anger Management (2003)<br>
+                Animal House (1978)<br>
+                Animal, The (2001)<br>
+                Animatrix, The (2003)<br>
+                Annie (1982)<br>
+                Annie Hall (1977)<br>
+                Another Stakeout (1993)<br>
+                Antz (1998)<br>
+                Any Given Sunday (1999)<br>
+                Apartment, The (1960)<br>
+                Apocalypse Now (1979)<br>
+                Apocalypto (2006)<br>
+                Apollo 13 (1995)<br>
+                Arachnophobia (1990)<br>
+                Aristocats, The (1970)<br>
+                Arlington Road (1999)<br>
+                Armageddon (1998)<br>
+                Army of Darkness (1993)<br>
+                Around the World in 80 Days (1956)<br>
+                Arrival, The (1996)<br>
+                Arsenic and Old Lace (1944)<br>
+                As Good as It Gets (1997)<br>
+                Assassins (1995)<br>
+                Astronaut's Wife, The (1999)<br>
+                Atlantis: The Lost Empire (2001)<br>
+                Atonement (2007)<br>
+                Austin Powers in Goldmember (2002)<br>
+                Austin Powers: International Man of Mystery (1997)<br>
+                Austin Powers: The Spy Who Shagged Me (1999)<br>
+                Autumn in New York (2000)<br>
+                Avengers, The (1998)<br>
+                Aviator, The (2004)<br>
+                AVP: Alien vs. Predator (2004)<br>
+                Awakenings (1990)<br>
+                Babe (1995)<br>
+                Babe: Pig in the City (1998)<br>
+                Babel (2006)<br>
+                Baby Mama (2008)<br>
+                Bachelor, The (1999)<br>
+                Back to School (1986)<br>
+                Back to the Future (1985)<br>
+                Back to the Future Part II (1989)<br>
+                Back to the Future Part III (1990)<br>
+                Backdraft (1991)<br>
+                Bad Boys (1995)<br>
+                Bad Boys II (2003)<br>
+                Bad Santa (2003)<br>
+                Badlands (1973)<br>
+                Bambi (1942)<br>
+                Bananas (1971)<br>
+                Bank Job, The (2008)<br>
+                Barb Wire (1996)<br>
+                Barcelona (1994)<br>
+                Barton Fink (1991)<br>
+                BASEketball (1998)<br>
+                Basic Instinct (1992)<br>
+                Basketball Diaries, The (1995)<br>
+                Batman & Robin (1997)<br>
+                Batman (1989)<br>
+                Batman Begins (2005)<br>
+                Batman Forever (1995)<br>
+                Batman Returns (1992)<br>
+                Batman: Mask of the Phantasm (1993)<br>
+                Battle Royale (Batoru rowaiaru) (2000)<br>
+                Battlefield Earth (2000)<br>
+                Battlestar Galactica (2003)<br>
+                Beach, The (2000)<br>
+                Bean (1997)<br>
+                Beautiful Mind, A (2001)<br>
+                Beauty and the Beast (1991)<br>
+                Beauty of the Day (Belle de jour) (1967)<br>
+                Beavis and Butt-Head Do America (1996)<br>
+                Bedazzled (2000)<br>
+                Bedknobs and Broomsticks (1971)<br>
+                Bedtime Stories (2008)<br>
+                Beethoven (1992)<br>
+                Beetlejuice (1988)<br>
+                Before Sunrise (1995)<br>
+                Before Sunset (2004)<br>
+                Behind Enemy Lines (2001)<br>
+                Being John Malkovich (1999)<br>
+                Being There (1979)<br>
+                Benchwarmers, The (2006)<br>
+                Bend It Like Beckham (2002)<br>
+                Beneath the Planet of the Apes (1970)<br>
+                Ben-Hur (1959)<br>
+                Benny & Joon (1993)<br>
+                Best in Show (2000)<br>
+                Better Off Dead... (1985)<br>
+                Beverly Hillbillies, The (1993)<br>
+                Beverly Hills Cop (1984)<br>
+                Beverly Hills Cop II (1987)<br>
+                Beverly Hills Cop III (1994)<br>
+                Beverly Hills Ninja (1997)<br>
+                Bewitched (2005)<br>
+                Bicentennial Man (1999)<br>
+                Bicycle Thieves (a.k.a. The Bicycle Thief) (a.k.a. The Bicycle Thieves) (Ladri di biciclette) (1948)<br>
+                Big (1988)<br>
+                Big Blue, The (Grand bleu, Le) (1988)<br>
+                Big Chill, The (1983)<br>
+                Big Daddy (1999)<br>
+                Big Fish (2003)<br>
+                Big Lebowski, The (1998)<br>
+                Big Momma's House (2000)<br>
+                Big Night (1996)<br>
+                Big Sleep, The (1946)<br>
+                Big Trouble in Little China (1986)<br>
+                Bill & Ted's Bogus Journey (1991)<br>
+                Bill & Ted's Excellent Adventure (1989)<br>
+                Billy Elliot (2000)<br>
+                Billy Madison (1995)<br>
+                Bio-Dome (1996)<br>
+                Birdcage, The (1996)<br>
+                Birds, The (1963)<br>
+                Black Beauty (1994)<br>
+                Black Hawk Down (2001)<br>
+                Black Sheep (1996)<br>
+                Blade (1998)<br>
+                Blade II (2002)<br>
+                Blade Runner (1982)<br>
+                Blade: Trinity (2004)<br>
+                Blades of Glory (2007)<br>
+                Blair Witch Project, The (1999)<br>
+                Blast from the Past (1999)<br>
+                Blazing Saddles (1974)<br>
+                Blind Swordsman: Zatoichi, The (Zat?ichi) (2003)<br>
+                Blood Diamond (2006)<br>
+                Blood Simple (1984)<br>
+                Blow (2001)<br>
+                Blue Lagoon, The (1980)<br>
+                Blue Velvet (1986)<br>
+                Blues Brothers 2000 (1998)<br>
+                Blues Brothers, The (1980)<br>
+                Bob Roberts (1992)<br>
+                Body of Lies (2008)<br>
+                Bodyguard, The (1992)<br>
+                Boiler Room (2000)<br>
+                Bolt (2008)<br>
+                Bone Collector, The (1999)<br>
+                Bonnie and Clyde (1967)<br>
+                Boogie Nights (1997)<br>
+                Boomerang (1992)<br>
+                Boondock Saints, The (2000)<br>
+                Boot, Das (Boat, The) (1981)<br>
+                Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhstan (2006)<br>
+                Born on the Fourth of July (1989)<br>
+                Borrowers, The (1997)<br>
+                Bottle Rocket (1996)<br>
+                Bound (1996)<br>
+                Bourne Identity, The (2002)<br>
+                Bourne Supremacy, The (2004)<br>
+                Bourne Ultimatum, The (2007)<br>
+                Bowfinger (1999)<br>
+                Bowling for Columbine (2002)<br>
+                Boxing Helena (1993)<br>
+                Boys Don't Cry (1999)<br>
+                Boys on the Side (1995)<br>
+                Boyz N the Hood (1991)<br>
+                Brady Bunch Movie, The (1995)<br>
+                Braveheart (1995)<br>
+                Brazil (1985)<br>
+                Breakdown (1997)<br>
+                Breakfast at Tiffany's (1961)<br>
+                Breakfast Club, The (1985)<br>
+                Breaking Away (1979)<br>
+                Break-Up, The (2006)<br>
+                Brick (2005)<br>
+                Bridge on the River Kwai, The (1957)<br>
+                Bridges of Madison County, The (1995)<br>
+                Bridget Jones: The Edge of Reason (2004)<br>
+                Bridget Jones's Diary (2001)<br>
+                Bring It On (2000)<br>
+                Bringing Up Baby (1938)<br>
+                Broadcast News (1987)<br>
+                Brokeback Mountain (2005)<br>
+                Broken Arrow (1996)<br>
+                Broken Flowers (2005)<br>
+                Bronx Tale, A (1993)<br>
+                Brotherhood of the Wolf (Pacte des loups, Le) (2001)<br>
+                Brothers Grimm, The (2005)<br>
+                Brothers McMullen, The (1995)<br>
+                Bruce Almighty (2003)<br>
+                Bubba Ho-tep (2002)<br>
+                Bucket List, The (2007)<br>
+                Buffalo '66 (a.k.a. Buffalo 66) (1998)<br>
+                Buffy the Vampire Slayer (1992)<br>
+                Bug's Life, A (1998)<br>
+                Bull Durham (1988)<br>
+                Bulletproof Monk (2003)<br>
+                Bullets Over Broadway (1994)<br>
+                Bulworth (1998)<br>
+                'burbs, The (1989)<br>
+                Burn After Reading (2008)<br>
+                Butch Cassidy and the Sundance Kid (1969)<br>
+                Cable Guy, The (1996)<br>
+                Caddyshack (1980)<br>
+                Canadian Bacon (1995)<br>
+                Candyman (1992)<br>
+                Can't Hardly Wait (1998)<br>
+                Cape Fear (1962)<br>
+                Cape Fear (1991)<br>
+                Capote (2005)<br>
+                Carlito's Way (1993)<br>
+                Carrie (1976)<br>
+                Cars (2006)<br>
+                Casablanca (1942)<br>
+                Casino (1995)<br>
+                Casino Royale (2006)<br>
+                Casper (1995)<br>
+                Cast Away (2000)<br>
+                Catch Me If You Can (2002)<br>
+                Cats & Dogs (2001)<br>
+                Celebration, The (Festen) (1998)<br>
+                Cell, The (2000)<br>
+                Chain Reaction (1996)<br>
+                Charade (1963)<br>
+                Chariots of Fire (1981)<br>
+                Charlie and the Chocolate Factory (2005)<br>
+                Charlie's Angels (2000)<br>
+                Charlie's Angels: Full Throttle (2003)<br>
+                Charlotte's Web (1973)<br>
+                Chasing Amy (1997)<br>
+                Cheech and Chong's Up in Smoke (1978)<br>
+                Chicago (2002)<br>
+                Chicken Run (2000)<br>
+                Children of a Lesser God (1986)<br>
+                Children of Men (2006)<br>
+                Children of the Corn (1984)<br>
+                Child's Play (1988)<br>
+                Chinatown (1974)<br>
+                Chitty Chitty Bang Bang (1968)<br>
+                Chocolat (2000)<br>
+                Chorus, The (Choristes, Les) (2004)<br>
+                Christmas Story, A (1983)<br>
+                Christmas Vacation (National Lampoon's Christmas Vacation) (1989)<br>
+                Chronicles of Narnia: Prince Caspian, The (2008)<br>
+                Chronicles of Narnia: The Lion, the Witch and the Wardrobe, The (2005)<br>
+                Chronicles of Riddick, The (2004)<br>
+                Cider House Rules, The (1999)<br>
+                Cinderella (1950)<br>
+                Cinderella Man (2005)<br>
+                Cinema Paradiso (Nuovo cinema Paradiso) (1989)<br>
+                Circle of Friends (1995)<br>
+                Citizen Kane (1941)<br>
+                City Hall (1996)<br>
+                City Lights (1931)<br>
+                City of Angels (1998)<br>
+                City of God (Cidade de Deus) (2002)<br>
+                City of Lost Children, The (Cit? des enfants perdus, La) (1995)<br>
+                City Slickers (1991)<br>
+                City Slickers II: The Legend of Curly's Gold (1994)<br>
+                Civil Action, A (1998)<br>
+                Clear and Present Danger (1994)<br>
+                Clerks (1994)<br>
+                Clerks II (2006)<br>
+                Click (2006)<br>
+                Client, The (1994)<br>
+                Cliffhanger (1993)<br>
+                Clockers (1995)<br>
+                Clockwork Orange, A (1971)<br>
+                Close Encounters of the Third Kind (1977)<br>
+                Closer (2004)<br>
+                Cloverfield (2008)<br>
+                Clue (1985)<br>
+                Clueless (1995)<br>
+                Cocktail (1988)<br>
+                Cocoon (1985)<br>
+                Cold Mountain (2003)<br>
+                Collateral (2004)<br>
+                Color of Money, The (1986)<br>
+                Color Purple, The (1985)<br>
+                Coming to America (1988)<br>
+                Commitments, The (1991)<br>
+                Con Air (1997)<br>
+                Conan the Barbarian (1982)<br>
+                Coneheads (1993)<br>
+                Confessions of a Dangerous Mind (2002)<br>
+                Congo (1995)<br>
+                Conquest of the Planet of the Apes (1972)<br>
+                Conspiracy Theory (1997)<br>
+                Constant Gardener, The (2005)<br>
+                Constantine (2005)<br>
+                Contact (1997)<br>
+                Conversation, The (1974)<br>
+                Cook the Thief His Wife & Her Lover, The (1989)<br>
+                Cookie's Fortune (1999)<br>
+                Cool Hand Luke (1967)<br>
+                Cool Runnings (1993)<br>
+                Cop Land (1997)<br>
+                Copycat (1995)<br>
+                Coraline (2009)<br>
+                Corpse Bride (2005)<br>
+                Corrina, Corrina (1994)<br>
+                Courage Under Fire (1996)<br>
+                Cowboy Bebop: The Movie (Cowboy Bebop: Tengoku no Tobira) (2001)<br>
+                Coyote Ugly (2000)<br>
+                Craft, The (1996)<br>
+                Crank (2006)<br>
+                Crash (1996)<br>
+                Crash (2004)<br>
+                Creature Comforts (1989)<br>
+                Creepshow (1982)<br>
+                Crimes and Misdemeanors (1989)<br>
+                Crimson Tide (1995)<br>
+                Crocodile Dundee (1986)<br>
+                Crocodile Dundee II (1988)<br>
+                Crocodile Dundee in Los Angeles (2001)<br>
+                Crouching Tiger, Hidden Dragon (Wo hu cang long) (2000)<br>
+                Croupier (1998)<br>
+                Crow, The (1994)<br>
+                Crow: City of Angels, The (1996)<br>
+                Cruel Intentions (1999)<br>
+                Crumb (1994)<br>
+                Crying Game, The (1992)<br>
+                Cube (1997)<br>
+                Curious Case of Benjamin Button, The (2008)<br>
+                Cutthroat Island (1995)<br>
+                Cutting Edge, The (1992)<br>
+                Cyrano de Bergerac (1990)<br>
+                Da Vinci Code, The (2006)<br>
+                Dancer in the Dark (2000)<br>
+                Dances with Wolves (1990)<br>
+                Dangerous Liaisons (1988)<br>
+                Dangerous Minds (1995)<br>
+                Dante's Peak (1997)<br>
+                Daredevil (2003)<br>
+                Darjeeling Limited, The (2007)<br>
+                Dark City (1998)<br>
+                Dark Crystal, The (1982)<br>
+                Dark Knight, The (2008)<br>
+                Das Experiment (Experiment, The) (2001)<br>
+                Dave (1993)<br>
+                Dawn of the Dead (1978)<br>
+                Dawn of the Dead (2004)<br>
+                Day After Tomorrow, The (2004)<br>
+                Day the Earth Stood Still, The (1951)<br>
+                Daylight (1996)<br>
+                Days of Thunder (1990)<br>
+                Dazed and Confused (1993)<br>
+                Dead Again (1991)<br>
+                Dead Calm (1989)<br>
+                Dead Man (1995)<br>
+                Dead Man Walking (1995)<br>
+                Dead Men Don't Wear Plaid (1982)<br>
+                Dead Poets Society (1989)<br>
+                Dead Zone, The (1983)<br>
+                Death Becomes Her (1992)<br>
+                Death Proof (2007)<br>
+                Death to Smoochy (2002)<br>
+                Deep Blue Sea (1999)<br>
+                Deep Impact (1998)<br>
+                Deer Hunter, The (1978)<br>
+                Definitely, Maybe (2008)<br>
+                Delicatessen (1991)<br>
+                Deliverance (1972)<br>
+                Demolition Man (1993)<br>
+                Departed, The (2006)<br>
+                Descent, The (2005)<br>
+                Desperado (1995)<br>
+                Desperately Seeking Susan (1985)<br>
+                Deuce Bigalow: Male Gigolo (1999)<br>
+                Devil in a Blue Dress (1995)<br>
+                Devil Wears Prada, The (2006)<br>
+                Devil's Own, The (1997)<br>
+                Diabolique (1996)<br>
+                Dial M for Murder (1954)<br>
+                Diamonds Are Forever (1971)<br>
+                Dick Tracy (1990)<br>
+                Die Another Day (2002)<br>
+                Die Hard (1988)<br>
+                Die Hard 2 (1990)<br>
+                Die Hard: With a Vengeance (1995)<br>
+                Diner (1982)<br>
+                Dinosaur (2000)<br>
+                Dirty Dancing (1987)<br>
+                Dirty Dozen, The (1967)<br>
+                Dirty Harry (1971)<br>
+                Dirty Pretty Things (2002)<br>
+                Dirty Rotten Scoundrels (1988)<br>
+                Disclosure (1994)<br>
+                District 9 (2009)<br>
+                D?j? Vu (Deja Vu) (2006)<br>
+                Do the Right Thing (1989)<br>
+                Doctor Dolittle (1967)<br>
+                Doctor Zhivago (1965)<br>
+                Dodgeball: A True Underdog Story (2004)<br>
+                Dog Day Afternoon (1975)<br>
+                Dogma (1999)<br>
+                Dogville (2003)<br>
+                Dolores Claiborne (1995)<br>
+                Don Juan DeMarco (1995)<br>
+                Donnie Brasco (1997)<br>
+                Donnie Darko (2001)<br>
+                Don't Tell Mom the Babysitter's Dead (1991)<br>
+                Doors, The (1991)<br>
+                Double Indemnity (1944)<br>
+                Double Jeopardy (1999)<br>
+                Down by Law (1986)<br>
+                Down Periscope (1996)<br>
+                Down to Earth (2001)<br>
+                Downfall (Untergang, Der) (2004)<br>
+                Dr. Dolittle (1998)<br>
+                Dr. Dolittle 2 (2001)<br>
+                Dr. Horrible's Sing-Along Blog (2008)<br>
+                Dr. No (1962)<br>
+                Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb (1964)<br>
+                Dracula (Bram Stoker's Dracula) (1992)<br>
+                Dracula: Dead and Loving It (1995)<br>
+                Dragonheart (1996)<br>
+                Dreamers, The (2003)<br>
+                Driving Miss Daisy (1989)<br>
+                Drop Zone (1994)<br>
+                Duck Soup (1933)<br>
+                Dude, Where's My Car? (2000)<br>
+                Dukes of Hazzard, The (2005)<br>
+                Dumb & Dumber (Dumb and Dumber) (1994)<br>
+                Dumb and Dumberer: When Harry Met Lloyd (2003)<br>
+                Dumbo (1941)<br>
+                Dune (1984)<br>
+                Dungeons & Dragons (2000)<br>
+                E.T. the Extra-Terrestrial (1982)<br>
+                Eastern Promises (2007)<br>
+                Easy Rider (1969)<br>
+                Eat Drink Man Woman (Yin shi nan nu) (1994)<br>
+                Ed Wood (1994)<br>
+                Edge, The (1997)<br>
+                EDtv (1999)<br>
+                Edward Scissorhands (1990)<br>
+                Election (1999)<br>
+                Elephant Man, The (1980)<br>
+                Elf (2003)<br>
+                Elizabeth (1998)<br>
+                Emma (1996)<br>
+                Emperor's New Groove, The (2000)<br>
+                Empire Records (1995)<br>
+                Enchanted (2007)<br>
+                Encino Man (1992)<br>
+                End of Days (1999)<br>
+                Enemy at the Gates (2001)<br>
+                Enemy of the State (1998)<br>
+                English Patient, The (1996)<br>
+                Englishman Who Went Up a Hill But Came Down a Mountain, The (1995)<br>
+                Enter the Dragon (1973)<br>
+                Entrapment (1999)<br>
+                Equilibrium (2002)<br>
+                Eragon (2006)<br>
+                Eraser (1996)<br>
+                Erin Brockovich (2000)<br>
+                Escape from L.A. (1996)<br>
+                Escape from New York (1981)<br>
+                Escape from the Planet of the Apes (1971)<br>
+                Eternal Sunshine of the Spotless Mind (2004)<br>
+                European Vacation (aka National Lampoon's European Vacation) (1985)<br>
+                EuroTrip (2004)<br>
+                Evan Almighty (2007)<br>
+                Event Horizon (1997)<br>
+                Ever After: A Cinderella Story (1998)<br>
+                Everyone Says I Love You (1996)<br>
+                Everything You Always Wanted to Know About Sex * But Were Afraid to Ask (1972)<br>
+                Evil Dead II (Dead by Dawn) (1987)<br>
+                Evil Dead, The (1981)<br>
+                Evita (1996)<br>
+                Evolution (2001)<br>
+                Excalibur (1981)<br>
+                Executive Decision (1996)<br>
+                eXistenZ (1999)<br>
+                Exit to Eden (1994)<br>
+                Exorcist, The (1973)<br>
+                Exotica (1994)<br>
+                Eyes Wide Shut (1999)<br>
+                F/X (1986)<br>
+                Face/Off (1997)<br>
+                Faculty, The (1998)<br>
+                Fahrenheit 9/11 (2004)<br>
+                Fall, The (2006)<br>
+                Fallen (1998)<br>
+                Falling Down (1993)<br>
+                Family Guy Presents Stewie Griffin: The Untold Story (2005)<br>
+                Family Man, The (2000)<br>
+                Fantasia (1940)<br>
+                Fantasia 2000 (1999)<br>
+                Fantastic Four (2005)<br>
+                Fantastic Four: Rise of the Silver Surfer (2007)<br>
+                Far and Away (1992)<br>
+                Far from Heaven (2002)<br>
+                Fargo (1996)<br>
+                Fast and the Furious, The (2001)<br>
+                Fast and the Furious: Tokyo Drift, The (Fast and the Furious 3, The) (2006)<br>
+                Fast Times at Ridgemont High (1982)<br>
+                Fatal Attraction (1987)<br>
+                Fatal Instinct (1993)<br>
+                Father of the Bride (1950)<br>
+                Father of the Bride (1991)<br>
+                Father of the Bride Part II (1995)<br>
+                Fear and Loathing in Las Vegas (1998)<br>
+                Femme Nikita, La (Nikita) (1990)<br>
+                Ferris Bueller's Day Off (1986)<br>
+                Few Good Men, A (1992)<br>
+                Field of Dreams (1989)<br>
+                Fifth Element, The (1997)<br>
+                Fight Club (1999)<br>
+                Final Destination (2000)<br>
+                Final Fantasy: The Spirits Within (2001)<br>
+                Finding Forrester (2000)<br>
+                Finding Nemo (2003)<br>
+                Finding Neverland (2004)<br>
+                Firm, The (1993)<br>
+                First Blood (Rambo: First Blood) (1982)<br>
+                First Knight (1995)<br>
+                First Strike (Police Story 4: First Strike) (Ging chaat goo si 4: Ji gaan daan yam mo) (1996)<br>
+                First Wives Club, The (1996)<br>
+                Fish Called Wanda, A (1988)<br>
+                Fisher King, The (1991)<br>
+                Fistful of Dollars, A (Per un pugno di dollari) (1964)<br>
+                Flags of Our Fathers (2006)<br>
+                Flashdance (1983)<br>
+                Flatliners (1990)<br>
+                Fletch (1985)<br>
+                Flight of the Navigator (1986)<br>
+                Flightplan (2005)<br>
+                Flintstones in Viva Rock Vegas, The (2000)<br>
+                Flintstones, The (1994)<br>
+                Flirting With Disaster (1996)<br>
+                Flubber (1997)<br>
+                Fly Away Home (1996)<br>
+                Fly, The (1958)<br>
+                Fly, The (1986)<br>
+                Fog of War: Eleven Lessons from the Life of Robert S. McNamara, The (2003)<br>
+                Fools Rush In (1997)<br>
+                Footloose (1984)<br>
+                For a Few Dollars More (Per qualche dollaro in pi?) (1965)<br>
+                For Your Eyes Only (1981)<br>
+                Forbidden Planet (1956)<br>
+                Forever Young (1992)<br>
+                Forget Paris (1995)<br>
+                Forgetting Sarah Marshall (2008)<br>
+                Forrest Gump (1994)<br>
+                Fountain, The (2006)<br>
+                Four Rooms (1995)<br>
+                Four Weddings and a Funeral (1994)<br>
+                Fox and the Hound, The (1981)<br>
+                Fracture (2007)<br>
+                Frailty (2001)<br>
+                Frankenstein (1931)<br>
+                Freaky Friday (2003)<br>
+                Free Willy (1993)<br>
+                French Connection, The (1971)<br>
+                French Kiss (1995)<br>
+                Frequency (2000)<br>
+                Frida (2002)<br>
+                Friday (1995)<br>
+                Friday the 13th (1980)<br>
+                Fried Green Tomatoes (1991)<br>
+                Fright Night (1985)<br>
+                Frighteners, The (1996)<br>
+                From Dusk Till Dawn (1996)<br>
+                From Hell (2001)<br>
+                From Here to Eternity (1953)<br>
+                From Russia with Love (1963)<br>
+                Fugitive, The (1993)<br>
+                Full Metal Jacket (1987)<br>
+                Full Monty, The (1997)<br>
+                Fun with Dick and Jane (2005)<br>
+                Funny Farm (1988)<br>
+                G.I. Jane (1997)<br>
+                Galaxy Quest (1999)<br>
+                Game, The (1997)<br>
+                Gandhi (1982)<br>
+                Gangs of New York (2002)<br>
+                Garden State (2004)<br>
+                Gattaca (1997)<br>
+                General's Daughter, The (1999)<br>
+                George of the Jungle (1997)<br>
+                Get Shorty (1995)<br>
+                Get Smart (2008)<br>
+                Ghost (1990)<br>
+                Ghost and the Darkness, The (1996)<br>
+                Ghost Dog: The Way of the Samurai (1999)<br>
+                Ghost in the Shell (K?kaku kid?tai) (1995)<br>
+                Ghost Rider (2007)<br>
+                Ghost World (2001)<br>
+                Ghostbusters (a.k.a. Ghost Busters) (1984)<br>
+                Ghostbusters II (1989)<br>
+                Gift, The (2000)<br>
+                Girl Next Door, The (2004)<br>
+                Girl with a Pearl Earring (2003)<br>
+                Girl with the Dragon Tattoo, The (M?n som hatar kvinnor) (2009)<br>
+                Girl, Interrupted (1999)<br>
+                Gladiator (2000)<br>
+                Glengarry Glen Ross (1992)<br>
+                Glory (1989)<br>
+                Go (1999)<br>
+                Godfather, The (1972)<br>
+                Godfather: Part II, The (1974)<br>
+                Godfather: Part III, The (1990)<br>
+                Gods Must Be Crazy, The (1980)<br>
+                Godzilla (1998)<br>
+                Golden Child, The (1986)<br>
+                Golden Compass, The (2007)<br>
+                GoldenEye (1995)<br>
+                Goldfinger (1964)<br>
+                Gone Baby Gone (2007)<br>
+                Gone in 60 Seconds (2000)<br>
+                Gone with the Wind (1939)<br>
+                Good bye, Lenin! (2003)<br>
+                Good Girl, The (2002)<br>
+                Good Morning, Vietnam (1987)<br>
+                Good Night, and Good Luck. (2005)<br>
+                Good Will Hunting (1997)<br>
+                Good, the Bad and the Ugly, The (Buono, il brutto, il cattivo, Il) (1966)<br>
+                Goodbye Girl, The (1977)<br>
+                Goodfellas (1990)<br>
+                Goofy Movie, A (1995)<br>
+                Goonies, The (1985)<br>
+                Gosford Park (2001)<br>
+                Graduate, The (1967)<br>
+                Gran Torino (2008)<br>
+                Grand Day Out with Wallace and Gromit, A (1989)<br>
+                Grave of the Fireflies (Hotaru no haka) (1988)<br>
+                Grease (1978)<br>
+                Grease 2 (1982)<br>
+                Great Dictator, The (1940)<br>
+                Great Escape, The (1963)<br>
+                Great Expectations (1998)<br>
+                Great Muppet Caper, The (1981)<br>
+                Green Mile, The (1999)<br>
+                Gremlins (1984)<br>
+                Gremlins 2: The New Batch (1990)<br>
+                Grifters, The (1990)<br>
+                Grindhouse (2007)<br>
+                Grosse Pointe Blank (1997)<br>
+                Groundhog Day (1993)<br>
+                Grumpier Old Men (1995)<br>
+                Grumpy Old Men (1993)<br>
+                Guess Who's Coming to Dinner (1967)<br>
+                Guns of Navarone, The (1961)<br>
+                Hackers (1995)<br>
+                Hairspray (1988)<br>
+                Hairspray (2007)<br>
+                Half Baked (1998)<br>
+                Halloween (1978)<br>
+                Hamlet (1996)<br>
+                Hancock (2008)<br>
+                Hangover, The (2009)<br>
+                Hannah and Her Sisters (1986)<br>
+                Hannibal (2001)<br>
+                Happiness (1998)<br>
+                Happy Feet (2006)<br>
+                Happy Gilmore (1996)<br>
+                Hard Candy (2005)<br>
+                Hard Day's Night, A (1964)<br>
+                Harold & Kumar Escape from Guantanamo Bay (2008)<br>
+                Harold and Kumar Go to White Castle (2004)<br>
+                Harold and Maude (1971)<br>
+                Harriet the Spy (1996)<br>
+                Harry and the Hendersons (1987)<br>
+                Harry Potter and the Chamber of Secrets (2002)<br>
+                Harry Potter and the Goblet of Fire (2005)<br>
+                Harry Potter and the Half-Blood Prince (2009)<br>
+                Harry Potter and the Order of the Phoenix (2007)<br>
+                Harry Potter and the Prisoner of Azkaban (2004)<br>
+                Harry Potter and the Sorcerer's Stone (a.k.a. Harry Potter and the Philosopher's Stone) (2001)<br>
+                Harvey (1950)<br>
+                Haunting, The (1999)<br>
+                Heartbreak Ridge (1986)<br>
+                Heat (1995)<br>
+                Heathers (1989)<br>
+                Heaven Can Wait (1978)<br>
+                Heavenly Creatures (1994)<br>
+                Heavy Metal (1981)<br>
+                Hedwig and the Angry Inch (2000)<br>
+                Hellboy (2004)<br>
+                Hellboy II: The Golden Army (2008)<br>
+                Hellraiser (1987)<br>
+                Henry V (1989)<br>
+                Hercules (1997)<br>
+                Hero (Ying xiong) (2002)<br>
+                He's Just Not That Into You (2009)<br>
+                Hidalgo (2004)<br>
+                High Fidelity (2000)<br>
+                High Noon (1952)<br>
+                High Plains Drifter (1973)<br>
+                Highlander (1986)<br>
+                Highlander III: The Sorcerer (a.k.a. Highlander: The Final Dimension) (1994)<br>
+                His Girl Friday (1940)<br>
+                History of the World: Part I (1981)<br>
+                History of Violence, A (2005)<br>
+                Hitch (2005)<br>
+                Hitchhiker's Guide to the Galaxy, The (2005)<br>
+                Hocus Pocus (1993)<br>
+                Holes (2003)<br>
+                Holiday, The (2006)<br>
+                Hollow Man (2000)<br>
+                Home Alone (1990)<br>
+                Home Alone 2: Lost in New York (1992)<br>
+                Homeward Bound II: Lost in San Francisco (1996)<br>
+                Homeward Bound: The Incredible Journey (1993)<br>
+                Honey, I Blew Up the Kid (1992)<br>
+                Honey, I Shrunk the Kids (1989)<br>
+                Hook (1991)<br>
+                Hoop Dreams (1994)<br>
+                Hoosiers (a.k.a. Best Shot) (1986)<br>
+                Hostel (2005)<br>
+                Hot Fuzz (2007)<br>
+                Hot Shots! (1991)<br>
+                Hot Shots! Part Deux (1993)<br>
+                Hotel Rwanda (2004)<br>
+                Hours, The (2002)<br>
+                House of Flying Daggers (Shi mian mai fu) (2004)<br>
+                House on Haunted Hill (1999)<br>
+                Houseguest (1994)<br>
+                How the Grinch Stole Christmas (a.k.a. The Grinch) (2000)<br>
+                How the Grinch Stole Christmas! (1966)<br>
+                How to Lose a Guy in 10 Days (2003)<br>
+                How to Make an American Quilt (1995)<br>
+                Howard the Duck (1986)<br>
+                Howards End (1992)<br>
+                Howl's Moving Castle (Hauru no ugoku shiro) (2004)<br>
+                Hudsucker Proxy, The (1994)<br>
+                Hulk (2003)<br>
+                Hunchback of Notre Dame, The (1996)<br>
+                Hunt for Red October, The (1990)<br>
+                Hurricane, The (1999)<br>
+                Hurt Locker, The (2008)<br>
+                Hustler, The (1961)<br>
+                I Am Legend (2007)<br>
+                I Am Sam (2001)<br>
+                I Heart Huckabees (2004)<br>
+                I Know What You Did Last Summer (1997)<br>
+                I Love You, Man (2009)<br>
+                I Now Pronounce You Chuck and Larry (2007)<br>
+                I Still Know What You Did Last Summer (1998)<br>
+                I, Robot (2004)<br>
+                I.Q. (1994)<br>
+                Ice Age (2002)<br>
+                Ice Age 2: The Meltdown (2006)<br>
+                Ice Age: Dawn of the Dinosaurs (2009)<br>
+                Ice Storm, The (1997)<br>
+                Identity (2003)<br>
+                Idiocracy (2006)<br>
+                Idle Hands (1999)<br>
+                Igby Goes Down (2002)<br>
+                Illusionist, The (2006)<br>
+                Imaginarium of Doctor Parnassus, The (2009)<br>
+                Immortal Beloved (1994)<br>
+                In & Out (1997)<br>
+                In Bruges (2008)<br>
+                In Good Company (2004)<br>
+                In the Heat of the Night (1967)<br>
+                In the Line of Fire (1993)<br>
+                In the Mood For Love (Fa yeung nin wa) (2000)<br>
+                In the Name of the Father (1993)<br>
+                Inconvenient Truth, An (2006)<br>
+                Incredible Hulk, The (2008)<br>
+                Incredibles, The (2004)<br>
+                Independence Day (a.k.a. ID4) (1996)<br>
+                Indian in the Cupboard, The (1995)<br>
+                Indiana Jones and the Kingdom of the Crystal Skull (2008)<br>
+                Indiana Jones and the Last Crusade (1989)<br>
+                Indiana Jones and the Temple of Doom (1984)<br>
+                Inglourious Basterds (2009)<br>
+                Innerspace (1987)<br>
+                Inside Man (2006)<br>
+                Insider, The (1999)<br>
+                Insomnia (2002)<br>
+                Inspector Gadget (1999)<br>
+                Interview with the Vampire: The Vampire Chronicles (1994)<br>
+                Into the Wild (2007)<br>
+                Intolerable Cruelty (2003)<br>
+                Invasion of the Body Snatchers (1956)<br>
+                Iron Giant, The (1999)<br>
+                Iron Man (2008)<br>
+                Island of Dr. Moreau, The (1996)<br>
+                Island, The (2005)<br>
+                It Could Happen to You (1994)<br>
+                It Happened One Night (1934)<br>
+                Italian Job, The (2003)<br>
+                It's a Wonderful Life (1946)<br>
+                Jack (1996)<br>
+                Jackal, The (1997)<br>
+                Jackass: The Movie (2002)<br>
+                Jackie Brown (1997)<br>
+                Jacob's Ladder (1990)<br>
+                James and the Giant Peach (1996)<br>
+                Jarhead (2005)<br>
+                Jaws (1975)<br>
+                Jaws 2 (1978)<br>
+                Jay and Silent Bob Strike Back (2001)<br>
+                Jean de Florette (1986)<br>
+                Jerk, The (1979)<br>
+                Jerry Maguire (1996)<br>
+                Jewel of the Nile, The (1985)<br>
+                JFK (1991)<br>
+                Jingle All the Way (1996)<br>
+                Joe Dirt (2001)<br>
+                John Q (2002)<br>
+                Johnny English (2003)<br>
+                Johnny Mnemonic (1995)<br>
+                Judge Dredd (1995)<br>
+                Julie & Julia (2009)<br>
+                Jumanji (1995)<br>
+                Jumper (2008)<br>
+                Jumpin' Jack Flash (1986)<br>
+                Jungle Book, The (1967)<br>
+                Jungle Book, The (1994)<br>
+                Jungle2Jungle (a.k.a. Jungle 2 Jungle) (1997)<br>
+                Junior (1994)<br>
+                Juno (2007)<br>
+                Jurassic Park (1993)<br>
+                Jurassic Park III (2001)<br>
+                Juror, The (1996)<br>
+                Just Cause (1995)<br>
+                Kalifornia (1993)<br>
+                Karate Kid, Part II, The (1986)<br>
+                Karate Kid, Part III, The (1989)<br>
+                Karate Kid, The (1984)<br>
+                Kate & Leopold (2001)<br>
+                Kazaam (1996)<br>
+                Keeping the Faith (2000)<br>
+                Kelly's Heroes (1970)<br>
+                Kid, The (2000)<br>
+                Kids (1995)<br>
+                Kids in the Hall: Brain Candy (1996)<br>
+                Kiki's Delivery Service (Majo no takky?bin) (1989)<br>
+                Kill Bill: Vol. 1 (2003)<br>
+                Kill Bill: Vol. 2 (2004)<br>
+                Killer, The (Die xue shuang xiong) (1989)<br>
+                Killing Fields, The (1984)<br>
+                Kindergarten Cop (1990)<br>
+                King and I, The (1956)<br>
+                King Arthur (2004)<br>
+                King Kong (1933)<br>
+                King Kong (1976)<br>
+                King Kong (2005)<br>
+                King of Kong, The (2007)<br>
+                Kingdom of Heaven (2005)<br>
+                Kingpin (1996)<br>
+                Kiss Kiss Bang Bang (2005)<br>
+                Kiss the Girls (1997)<br>
+                Knight's Tale, A (2001)<br>
+                Knocked Up (2007)<br>
+                Koyaanisqatsi (a.k.a. Koyaanisqatsi: Life Out of Balance) (1983)<br>
+                K-PAX (2001)<br>
+                Kramer vs. Kramer (1979)<br>
+                Kung Fu Hustle (Gong fu) (2004)<br>
+                Kung Fu Panda (2008)<br>
+                L.A. Confidential (1997)<br>
+                L.A. Story (1991)<br>
+                Labyrinth (1986)<br>
+                Lady and the Tramp (1955)<br>
+                Ladyhawke (1985)<br>
+                Ladykillers, The (2004)<br>
+                Lake Placid (1999)<br>
+                Laputa: Castle in the Sky (Tenk? no shiro Rapyuta) (1986)<br>
+                Lara Croft Tomb Raider: The Cradle of Life (2003)<br>
+                Lara Croft: Tomb Raider (2001)<br>
+                Last Action Hero (1993)<br>
+                Last Emperor, The (1987)<br>
+                Last King of Scotland, The (2006)<br>
+                Last Man Standing (1996)<br>
+                Last of the Mohicans, The (1992)<br>
+                Last Samurai, The (2003)<br>
+                Lawnmower Man, The (1992)<br>
+                Lawrence of Arabia (1962)<br>
+                Layer Cake (2004)<br>
+                League of Extraordinary Gentlemen, The (a.k.a. LXG) (2003)<br>
+                League of Their Own, A (1992)<br>
+                Leaving Las Vegas (1995)<br>
+                Legally Blonde (2001)<br>
+                Legally Blonde 2: Red, White & Blonde (2003)<br>
+                Legend (1985)<br>
+                Legend of Bagger Vance, The (2000)<br>
+                Legend of Drunken Master, The (Jui kuen II) (1994)<br>
+                Legends of the Fall (1994)<br>
+                Lemony Snicket's A Series of Unfortunate Events (2004)<br>
+                Let the Right One In (L?t den r?tte komma in) (2008)<br>
+                Lethal Weapon (1987)<br>
+                Lethal Weapon 2 (1989)<br>
+                Lethal Weapon 3 (1992)<br>
+                Lethal Weapon 4 (1998)<br>
+                Letters from Iwo Jima (2006)<br>
+                Liar Liar (1997)<br>
+                Licence to Kill (1989)<br>
+                Life Aquatic with Steve Zissou, The (2004)<br>
+                Life Is Beautiful (La Vita ? bella) (1997)<br>
+                Like Water for Chocolate (Como agua para chocolate) (1992)<br>
+                Lilo & Stitch (2002)<br>
+                Limey, The (1999)<br>
+                Lion King, The (1994)<br>
+                Little Big Man (1970)<br>
+                Little Mermaid, The (1989)<br>
+                Little Miss Sunshine (2006)<br>
+                Little Nicky (2000)<br>
+                Little Princess, A (1995)<br>
+                Little Rascals, The (1994)<br>
+                Little Shop of Horrors (1986)<br>
+                Little Women (1994)<br>
+                Live and Let Die (1973)<br>
+                Live Free or Die Hard (2007)<br>
+                Lives of Others, The (Das leben der Anderen) (2006)<br>
+                Living Daylights, The (1987)<br>
+                Living in Oblivion (1995)<br>
+                Lock, Stock & Two Smoking Barrels (1998)<br>
+                Logan's Run (1976)<br>
+                L?on: The Professional (a.k.a. The Professional) (L?on) (1994)<br>
+                Lone Star (1996)<br>
+                Long Kiss Goodnight, The (1996)<br>
+                Longest Day, The (1962)<br>
+                Look Who's Talking (1989)<br>
+                Lord of the Flies (1963)<br>
+                Lord of the Rings, The (1978)<br>
+                Lord of the Rings: The Fellowship of the Ring, The (2001)<br>
+                Lord of the Rings: The Return of the King, The (2003)<br>
+                Lord of the Rings: The Two Towers, The (2002)<br>
+                Lord of War (2005)<br>
+                Lost Boys, The (1987)<br>
+                Lost Highway (1997)<br>
+                Lost in Space (1998)<br>
+                Lost in Translation (2003)<br>
+                Lost World: Jurassic Park, The (1997)<br>
+                Love Actually (2003)<br>
+                Lucky Number Slevin (2006)<br>
+                M (1931)<br>
+                M*A*S*H (a.k.a. MASH) (1970)<br>
+                Mad Max (1979)<br>
+                Mad Max Beyond Thunderdome (1985)<br>
+                Madagascar (2005)<br>
+                Madagascar: Escape 2 Africa (2008)<br>
+                Made in America (1993)<br>
+                Madness of King George, The (1994)<br>
+                Magnificent Seven, The (1960)<br>
+                Magnolia (1999)<br>
+                Maid in Manhattan (2002)<br>
+                Major League (1989)<br>
+                Major Payne (1995)<br>
+                Malcolm X (1992)<br>
+                Malice (1993)<br>
+                Mallrats (1995)<br>
+                Maltese Falcon, The (1941)<br>
+                Maltese Falcon, The (a.k.a. Dangerous Female) (1931)<br>
+                Mamma Mia! (2008)<br>
+                Man in the Iron Mask, The (1998)<br>
+                Man on Fire (2004)<br>
+                Man on the Moon (1999)<br>
+                Man Who Wasn't There, The (2001)<br>
+                Man Who Would Be King, The (1975)<br>
+                Man with the Golden Gun, The (1974)<br>
+                Man Without a Face, The (1993)<br>
+                Manchurian Candidate, The (1962)<br>
+                Manchurian Candidate, The (2004)<br>
+                Manhattan (1979)<br>
+                Manhattan Murder Mystery (1993)<br>
+                Marathon Man (1976)<br>
+                March of the Penguins (Marche de l'empereur, La) (2005)<br>
+                Mariachi, El (1992)<br>
+                Marie Antoinette (2006)<br>
+                Marley & Me (2008)<br>
+                Married to the Mob (1988)<br>
+                Mars Attacks! (1996)<br>
+                Mary Poppins (1964)<br>
+                Mary Shelley's Frankenstein (Frankenstein) (1994)<br>
+                Mask of Zorro, The (1998)<br>
+                Mask, The (1994)<br>
+                Master and Commander: The Far Side of the World (2003)<br>
+                Match Point (2005)<br>
+                Matchstick Men (2003)<br>
+                Matilda (1996)<br>
+                Matrix Reloaded, The (2003)<br>
+                Matrix Revolutions, The (2003)<br>
+                Matrix, The (1999)<br>
+                Maverick (1994)<br>
+                Me, Myself & Irene (2000)<br>
+                Mean Girls (2004)<br>
+                Medicine Man (1992)<br>
+                Meet Joe Black (1998)<br>
+                Meet the Fockers (2004)<br>
+                Meet the Parents (2000)<br>
+                Meet the Robinsons (2007)<br>
+                Memento (2000)<br>
+                Memoirs of a Geisha (2005)<br>
+                Men in Black (a.k.a. MIB) (1997)<br>
+                Men in Black II (a.k.a. MIIB) (a.k.a. MIB 2) (2002)<br>
+                Men of Honor (2000)<br>
+                Menace II Society (1993)<br>
+                Mercury Rising (1998)<br>
+                Messenger: The Story of Joan of Arc, The (1999)<br>
+                Metropolis (1927)<br>
+                Metropolis (2001)<br>
+                Mexican, The (2001)<br>
+                Michael (1996)<br>
+                Michael Clayton (2007)<br>
+                Michael Collins (1996)<br>
+                Mickey Blue Eyes (1999)<br>
+                Midnight Cowboy (1969)<br>
+                Midnight in the Garden of Good and Evil (1997)<br>
+                Midnight Run (1988)<br>
+                Mighty Aphrodite (1995)<br>
+                Mighty Ducks, The (1992)<br>
+                Mighty Morphin Power Rangers: The Movie (1995)<br>
+                Mighty Wind, A (2003)<br>
+                Milk (2008)<br>
+                Milk Money (1994)<br>
+                Miller's Crossing (1990)<br>
+                Million Dollar Baby (2004)<br>
+                Mimic (1997)<br>
+                Minority Report (2002)<br>
+                Miracle on 34th Street (1947)<br>
+                Miracle on 34th Street (1994)<br>
+                Misery (1990)<br>
+                Mis?rables, Les (1995)<br>
+                Miss Congeniality (2000)<br>
+                Mission to Mars (2000)<br>
+                Mission: Impossible (1996)<br>
+                Mission: Impossible II (2000)<br>
+                Mission: Impossible III (2006)<br>
+                Mississippi Burning (1988)<br>
+                Mist, The (2007)<br>
+                Mister Roberts (1955)<br>
+                Modern Times (1936)<br>
+                Money Pit, The (1986)<br>
+                Money Train (1995)<br>
+                Monsoon Wedding (2001)<br>
+                Monster (2003)<br>
+                Monster's Ball (2001)<br>
+                Monsters, Inc. (2001)<br>
+                Monty Python and the Holy Grail (1975)<br>
+                Monty Python's And Now for Something Completely Different (1971)<br>
+                Monty Python's Life of Brian (1979)<br>
+                Monty Python's The Meaning of Life (1983)<br>
+                Moon (2009)<br>
+                Moonraker (1979)<br>
+                Moonstruck (1987)<br>
+                Mortal Kombat (1995)<br>
+                Mothman Prophecies, The (2002)<br>
+                Motorcycle Diaries, The (Diarios de motocicleta) (2004)<br>
+                Moulin Rouge (2001)<br>
+                Mr. & Mrs. Smith (2005)<br>
+                Mr. Deeds (2002)<br>
+                Mr. Holland's Opus (1995)<br>
+                Mr. Mom (1983)<br>
+                Mr. Smith Goes to Washington (1939)<br>
+                Mrs. Doubtfire (1993)<br>
+                Much Ado About Nothing (1993)<br>
+                Mulan (1998)<br>
+                Mulholland Drive (2001)<br>
+                Mulholland Falls (1996)<br>
+                Multiplicity (1996)<br>
+                Mummy Returns, The (2001)<br>
+                Mummy, The (1999)<br>
+                Munich (2005)<br>
+                Muppet Christmas Carol, The (1992)<br>
+                Muppet Movie, The (1979)<br>
+                Muppet Treasure Island (1996)<br>
+                Muppets Take Manhattan, The (1984)<br>
+                Murder in the First (1995)<br>
+                Muriel's Wedding (1994)<br>
+                My Best Friend's Wedding (1997)<br>
+                My Big Fat Greek Wedding (2002)<br>
+                My Blue Heaven (1990)<br>
+                My Cousin Vinny (1992)<br>
+                My Dog Skip (1999)<br>
+                My Fair Lady (1964)<br>
+                My Neighbor Totoro (Tonari no Totoro) (1988)<br>
+                Mystery Men (1999)<br>
+                Mystery Science Theater 3000: The Movie (1996)<br>
+                Mystic River (2003)<br>
+                Nacho Libre (2006)<br>
+                Naked Gun 2 1/2: The Smell of Fear, The (1991)<br>
+                Naked Gun 33 1/3: The Final Insult (1994)<br>
+                Naked Gun: From the Files of Police Squad!, The (1988)<br>
+                Name of the Rose, The (Name der Rose, Der) (1986)<br>
+                Napoleon Dynamite (2004)<br>
+                National Lampoon's Vacation (1983)<br>
+                National Lampoon's Van Wilder (2002)<br>
+                National Treasure (2004)<br>
+                National Treasure: Book of Secrets (2007)<br>
+                Natural Born Killers (1994)<br>
+                Natural, The (1984)<br>
+                Nausica? of the Valley of the Wind (Kaze no tani no Naushika) (1984)<br>
+                Negotiator, The (1998)<br>
+                Nell (1994)<br>
+                Net, The (1995)<br>
+                Network (1976)<br>
+                Never Been Kissed (1999)<br>
+                NeverEnding Story, The (1984)<br>
+                Next (2007)<br>
+                Next Karate Kid, The (1994)<br>
+                Night at the Museum (2006)<br>
+                Night of the Living Dead (1968)<br>
+                Nightmare Before Christmas, The (1993)<br>
+                Nightmare on Elm Street 3: Dream Warriors, A (1987)<br>
+                Nightmare on Elm Street, A (1984)<br>
+                Nine Months (1995)<br>
+                Nine to Five (a.k.a. 9 to 5) (1980)<br>
+                Ninja Scroll (J?bei ninp?ch?) (1995)<br>
+                Ninth Gate, The (1999)<br>
+                Nixon (1995)<br>
+                No Country for Old Men (2007)<br>
+                No Man's Land (2001)<br>
+                Nobody's Fool (1994)<br>
+                North by Northwest (1959)<br>
+                Nosferatu (Nosferatu, eine Symphonie des Grauens) (1922)<br>
+                Not Another Teen Movie (2001)<br>
+                Notebook, The (2004)<br>
+                Notorious (1946)<br>
+                Notting Hill (1999)<br>
+                Number 23, The (2007)<br>
+                Nurse Betty (2000)<br>
+                Nutty Professor II: The Klumps (2000)<br>
+                Nutty Professor, The (1963)<br>
+                Nutty Professor, The (1996)<br>
+                O Brother, Where Art Thou? (2000)<br>
+                Ocean's Eleven (2001)<br>
+                Ocean's Eleven (a.k.a. Ocean's 11) (1960)<br>
+                Ocean's Thirteen (2007)<br>
+                Ocean's Twelve (2004)<br>
+                October Sky (1999)<br>
+                Odd Couple, The (1968)<br>
+                Of Mice and Men (1992)<br>
+                Office Space (1999)<br>
+                Officer and a Gentleman, An (1982)<br>
+                Old Boy (2003)<br>
+                Old School (2003)<br>
+                Oliver & Company (1988)<br>
+                Omen, The (1976)<br>
+                On Golden Pond (1981)<br>
+                On Her Majesty's Secret Service (1969)<br>
+                On the Waterfront (1954)<br>
+                Once Upon a Time in America (1984)<br>
+                Once Upon a Time in Mexico (2003)<br>
+                Once Upon a Time in the West (C'era una volta il West) (1968)<br>
+                Once Were Warriors (1994)<br>
+                One Flew Over the Cuckoo's Nest (1975)<br>
+                One Hour Photo (2002)<br>
+                One, The (2001)<br>
+                Ong-Bak: The Thai Warrior (Ong Bak) (2003)<br>
+                Opposite of Sex, The (1998)<br>
+                Orange County (2002)<br>
+                Ordinary People (1980)<br>
+                Orgazmo (1997)<br>
+                Othello (1995)<br>
+                Others, The (2001)<br>
+                Out of Africa (1985)<br>
+                Out of Sight (1998)<br>
+                Outbreak (1995)<br>
+                Outlaw Josey Wales, The (1976)<br>
+                Outsiders, The (1983)<br>
+                Over the Hedge (2006)<br>
+                P.S. I Love You (2007)<br>
+                Pacific Heights (1990)<br>
+                Panic Room (2002)<br>
+                Pan's Labyrinth (Laberinto del fauno, El) (2006)<br>
+                Paper, The (1994)<br>
+                Papillon (1973)<br>
+                Parent Trap, The (1961)<br>
+                Parent Trap, The (1998)<br>
+                Parenthood (1989)<br>
+                Passion of the Christ, The (2004)<br>
+                Patch Adams (1998)<br>
+                Paths of Glory (1957)<br>
+                Patriot Games (1992)<br>
+                Patriot, The (2000)<br>
+                Patton (1970)<br>
+                Pay It Forward (2000)<br>
+                Payback (1999)<br>
+                Paycheck (2003)<br>
+                Peacemaker, The (1997)<br>
+                Pearl Harbor (2001)<br>
+                Pee-wee's Big Adventure (1985)<br>
+                Pelican Brief, The (1993)<br>
+                People vs. Larry Flynt, The (1996)<br>
+                Perfect Murder, A (1998)<br>
+                Perfect Storm, The (2000)<br>
+                Perfect World, A (1993)<br>
+                Persepolis (2007)<br>
+                Persuasion (1995)<br>
+                Peter Pan (1953)<br>
+                Pete's Dragon (1977)<br>
+                Phantasm (1979)<br>
+                Phantom of the Opera, The (2004)<br>
+                Phantom, The (1996)<br>
+                Phenomenon (1996)<br>
+                Philadelphia (1993)<br>
+                Philadelphia Story, The (1940)<br>
+                Phone Booth (2002)<br>
+                Pi (1998)<br>
+                Pianist, The (2002)<br>
+                Piano, The (1993)<br>
+                Pineapple Express (2008)<br>
+                Pink Floyd: The Wall (1982)<br>
+                Pink Panther, The (1963)<br>
+                Pinocchio (1940)<br>
+                Pirates of the Caribbean: At World's End (2007)<br>
+                Pirates of the Caribbean: Dead Man's Chest (2006)<br>
+                Pirates of the Caribbean: The Curse of the Black Pearl (2003)<br>
+                Pitch Black (2000)<br>
+                Planes, Trains & Automobiles (1987)<br>
+                Planet of the Apes (1968)<br>
+                Planet of the Apes (2001)<br>
+                Planet Terror (2007)<br>
+                Platoon (1986)<br>
+                Player, The (1992)<br>
+                Pleasantville (1998)<br>
+                Pocahontas (1995)<br>
+                Point Break (1991)<br>
+                Polar Express, The (2004)<br>
+                Police Academy (1984)<br>
+                Police Academy 2: Their First Assignment (1985)<br>
+                Pollock (2000)<br>
+                Poltergeist (1982)<br>
+                Ponyo (Gake no ue no Ponyo) (2008)<br>
+                Popeye (1980)<br>
+                Porco Rosso (Crimson Pig) (Kurenai no buta) (1992)<br>
+                Porky's (1982)<br>
+                Poseidon Adventure, The (1972)<br>
+                Postman, The (1997)<br>
+                Postman, The (Postino, Il) (1994)<br>
+                Powder (1995)<br>
+                Predator (1987)<br>
+                Predator 2 (1990)<br>
+                Prestige, The (2006)<br>
+                Pretty in Pink (1986)<br>
+                Pretty Woman (1990)<br>
+                Pride & Prejudice (2005)<br>
+                Primal Fear (1996)<br>
+                Primary Colors (1998)<br>
+                Primer (2004)<br>
+                Prince of Egypt, The (1998)<br>
+                Princess Bride, The (1987)<br>
+                Princess Diaries, The (2001)<br>
+                Princess Mononoke (Mononoke-hime) (1997)<br>
+                Private Benjamin (1980)<br>
+                Private Parts (1997)<br>
+                Problem Child (1990)<br>
+                Producers, The (1968)<br>
+                Professional, The (Le professionnel) (1981)<br>
+                Proof of Life (2000)<br>
+                Prophecy, The (1995)<br>
+                Proposal, The (2009)<br>
+                Psycho (1960)<br>
+                Pulp Fiction (1994)<br>
+                Punch-Drunk Love (2002)<br>
+                Punisher, The (2004)<br>
+                Purple Rose of Cairo, The (1985)<br>
+                Pursuit of Happyness, The (2006)<br>
+                Pushing Tin (1999)<br>
+                Quantum of Solace (2008)<br>
+                Queen of the Damned (2002)<br>
+                Quick and the Dead, The (1995)<br>
+                Quiz Show (1994)<br>
+                Raging Bull (1980)<br>
+                Raiders of the Lost Ark (Indiana Jones and the Raiders of the Lost Ark) (1981)<br>
+                Rain Man (1988)<br>
+                Rainmaker, The (1997)<br>
+                Raising Arizona (1987)<br>
+                Rambo III (1988)<br>
+                Rambo: First Blood Part II (1985)<br>
+                Ran (1985)<br>
+                Ransom (1996)<br>
+                Rashomon (Rash?mon) (1950)<br>
+                Rat Race (2001)<br>
+                Ratatouille (2007)<br>
+                Ray (2004)<br>
+                Real Genius (1985)<br>
+                Reality Bites (1994)<br>
+                Rear Window (1954)<br>
+                Rebecca (1940)<br>
+                Rebel Without a Cause (1955)<br>
+                Recruit, The (2003)<br>
+                Red Dawn (1984)<br>
+                Red Dragon (2002)<br>
+                Red Planet (2000)<br>
+                Red Rock West (1992)<br>
+                Red Violin, The (Violon rouge, Le) (1998)<br>
+                Ref, The (1994)<br>
+                Reign of Fire (2002)<br>
+                Reindeer Games (2000)<br>
+                Remains of the Day, The (1993)<br>
+                Remember the Titans (2000)<br>
+                Renaissance Man (1994)<br>
+                Replacement Killers, The (1998)<br>
+                Replacements, The (2000)<br>
+                Repo Man (1984)<br>
+                Requiem for a Dream (2000)<br>
+                Rescuers, The (1977)<br>
+                Reservoir Dogs (1992)<br>
+                Resident Evil (2002)<br>
+                Resident Evil: Apocalypse (2004)<br>
+                Return of the Pink Panther, The (1975)<br>
+                Revenge of the Nerds (1984)<br>
+                Richard III (1995)<br>
+                Richie Rich (1994)<br>
+                Right Stuff, The (1983)<br>
+                Ring, The (2002)<br>
+                Ringu (Ring) (1998)<br>
+                Risky Business (1983)<br>
+                River Runs Through It, A (1992)<br>
+                River Wild, The (1994)<br>
+                Road to El Dorado, The (2000)<br>
+                Road to Perdition (2002)<br>
+                Road Trip (2000)<br>
+                Road Warrior, The (Mad Max 2) (1981)<br>
+                Rob Roy (1995)<br>
+                Robin Hood (1973)<br>
+                Robin Hood: Men in Tights (1993)<br>
+                Robin Hood: Prince of Thieves (1991)<br>
+                RoboCop (1987)<br>
+                RoboCop 2 (1990)<br>
+                RoboCop 3 (1993)<br>
+                Robots (2005)<br>
+                Rock, The (1996)<br>
+                Rocketeer, The (1991)<br>
+                RocknRolla (2008)<br>
+                Rocky (1976)<br>
+                Rocky Balboa (2006)<br>
+                Rocky Horror Picture Show, The (1975)<br>
+                Rocky II (1979)<br>
+                Rocky III (1982)<br>
+                Rocky IV (1985)<br>
+                Rocky V (1990)<br>
+                Roger & Me (1989)<br>
+                Role Models (2008)<br>
+                Roman Holiday (1953)<br>
+                Romancing the Stone (1984)<br>
+                Romeo and Juliet (1968)<br>
+                Romeo Must Die (2000)<br>
+                Romy and Michele's High School Reunion (1997)<br>
+                Ronin (1998)<br>
+                Rookie, The (2002)<br>
+                Room with a View, A (1986)<br>
+                Rosemary's Baby (1968)<br>
+                Rosencrantz and Guildenstern Are Dead (1990)<br>
+                Rounders (1998)<br>
+                Roxanne (1987)<br>
+                Royal Tenenbaums, The (2001)<br>
+                Rudy (1993)<br>
+                Rumble in the Bronx (Hont faan kui) (1995)<br>
+                Run Lola Run (Lola rennt) (1998)<br>
+                Runaway Bride (1999)<br>
+                Runaway Jury (2003)<br>
+                Rundown, The (2003)<br>
+                Running Man, The (1987)<br>
+                Rush Hour (1998)<br>
+                Rush Hour 2 (2001)<br>
+                Rushmore (1998)<br>
+                Ruthless People (1986)<br>
+                S.W.A.T. (2003)<br>
+                Sabrina (1954)<br>
+                Sabrina (1995)<br>
+                Saint, The (1997)<br>
+                Sandlot, The (1993)<br>
+                Santa Clause, The (1994)<br>
+                Saturday Night Fever (1977)<br>
+                Save the Last Dance (2001)<br>
+                Saved! (2004)<br>
+                Saving Grace (2000)<br>
+                Saving Private Ryan (1998)<br>
+                Saving Silverman (Evil Woman) (2001)<br>
+                Saw (2004)<br>
+                Saw II (2005)<br>
+                Saw III (2006)<br>
+                Say Anything... (1989)<br>
+                Scanner Darkly, A (2006)<br>
+                Scarface (1983)<br>
+                Scary Movie (2000)<br>
+                Scary Movie 2 (2001)<br>
+                Scary Movie 3 (2003)<br>
+                Scary Movie 4 (2006)<br>
+                Scent of a Woman (1992)<br>
+                Schindler's List (1993)<br>
+                School of Rock (2003)<br>
+                Science of Sleep, The (La science des r?ves) (2006)<br>
+                Scooby-Doo (2002)<br>
+                Score, The (2001)<br>
+                Scream (1996)<br>
+                Scream 2 (1997)<br>
+                Scream 3 (2000)<br>
+                Screamers (1995)<br>
+                Scrooged (1988)<br>
+                Seabiscuit (2003)<br>
+                Searching for Bobby Fischer (1993)<br>
+                Secondhand Lions (2003)<br>
+                Secret Garden, The (1993)<br>
+                Secret of NIMH, The (1982)<br>
+                Secret of Roan Inish, The (1994)<br>
+                Secret Window (2004)<br>
+                Secretary (2002)<br>
+                Secrets & Lies (1996)<br>
+                Sense and Sensibility (1995)<br>
+                Serendipity (2001)<br>
+                Serenity (2005)<br>
+                Serial Mom (1994)<br>
+                Serpico (1973)<br>
+                Seven (a.k.a. Se7en) (1995)<br>
+                Seven Pounds (2008)<br>
+                Seven Samurai (Shichinin no samurai) (1954)<br>
+                Seven Years in Tibet (1997)<br>
+                Seventh Seal, The (Sjunde inseglet, Det) (1957)<br>
+                Sex and the City (2008)<br>
+                Sex, Lies, and Videotape (1989)<br>
+                Sexy Beast (2000)<br>
+                Sgt. Bilko (1996)<br>
+                Shadow of the Vampire (2000)<br>
+                Shadow, The (1994)<br>
+                Shadowlands (1993)<br>
+                Shaft (2000)<br>
+                Shakespeare in Love (1998)<br>
+                Shall We Dance? (Shall We Dansu?) (1996)<br>
+                Shallow Grave (1994)<br>
+                Shallow Hal (2001)<br>
+                Shanghai Knights (2003)<br>
+                Shanghai Noon (2000)<br>
+                Shaolin Soccer (Siu lam juk kau) (2001)<br>
+                Shark Tale (2004)<br>
+                Shaun of the Dead (2004)<br>
+                Shawshank Redemption, The (1994)<br>
+                She's All That (1999)<br>
+                Shine (1996)<br>
+                Shining, The (1980)<br>
+                Shoot 'Em Up (2007)<br>
+                Shooter (2007)<br>
+                Short Circuit (1986)<br>
+                Short Cuts (1993)<br>
+                Showgirls (1995)<br>
+                Shrek (2001)<br>
+                Shrek 2 (2004)<br>
+                Shrek the Third (2007)<br>
+                Sicko (2007)<br>
+                Sideways (2004)<br>
+                Siege, The (1998)<br>
+                Signs (2002)<br>
+                Silence of the Lambs, The (1991)<br>
+                Silent Hill (2006)<br>
+                Simple Plan, A (1998)<br>
+                Simpsons Movie, The (2007)<br>
+                Sin City (2005)<br>
+                Singin' in the Rain (1952)<br>
+                Single White Female (1992)<br>
+                Singles (1992)<br>
+                Sirens (1994)<br>
+                Sister Act (1992)<br>
+                Sister Act 2: Back in the Habit (1993)<br>
+                Six Days Seven Nights (1998)<br>
+                Six Degrees of Separation (1993)<br>
+                Sixteen Candles (1984)<br>
+                Sixth Sense, The (1999)<br>
+                Sky Captain and the World of Tomorrow (2004)<br>
+                SLC Punk! (1998)<br>
+                Sleeper (1973)<br>
+                Sleepers (1996)<br>
+                Sleeping Beauty (1959)<br>
+                Sleepless in Seattle (1993)<br>
+                Sleepy Hollow (1999)<br>
+                Sliding Doors (1998)<br>
+                Sling Blade (1996)<br>
+                Sliver (1993)<br>
+                Slumdog Millionaire (2008)<br>
+                Small Soldiers (1998)<br>
+                Small Time Crooks (2000)<br>
+                Smilla's Sense of Snow (1997)<br>
+                Smoke (1995)<br>
+                Snake Eyes (1998)<br>
+                Snakes on a Plane (2006)<br>
+                Snatch (2000)<br>
+                Sneakers (1992)<br>
+                Snow White and the Seven Dwarfs (1937)<br>
+                So I Married an Axe Murderer (1993)<br>
+                Solaris (2002)<br>
+                Solaris (Solyaris) (1972)<br>
+                Some Like It Hot (1959)<br>
+                Something's Gotta Give (2003)<br>
+                Son in Law (1993)<br>
+                Sound of Music, The (1965)<br>
+                South Park: Bigger, Longer and Uncut (1999)<br>
+                Soylent Green (1973)<br>
+                Space Cowboys (2000)<br>
+                Space Jam (1996)<br>
+                Spaceballs (1987)<br>
+                Spanglish (2004)<br>
+                Spanish Prisoner, The (1997)<br>
+                Spartacus (1960)<br>
+                Spawn (1997)<br>
+                Specialist, The (1994)<br>
+                Species (1995)<br>
+                Speed (1994)<br>
+                Speed 2: Cruise Control (1997)<br>
+                Spellbound (2002)<br>
+                Sphere (1998)<br>
+                Spider-Man (2002)<br>
+                Spider-Man 2 (2004)<br>
+                Spider-Man 3 (2007)<br>
+                Spirited Away (Sen to Chihiro no kamikakushi) (2001)<br>
+                Splash (1984)<br>
+                Spy Game (2001)<br>
+                Spy Hard (1996)<br>
+                Spy Kids (2001)<br>
+                Spy Who Loved Me, The (1977)<br>
+                St. Elmo's Fire (1985)<br>
+                Stand by Me (1986)<br>
+                Star Trek (2009)<br>
+                Star Trek II: The Wrath of Khan (1982)<br>
+                Star Trek III: The Search for Spock (1984)<br>
+                Star Trek IV: The Voyage Home (1986)<br>
+                Star Trek V: The Final Frontier (1989)<br>
+                Star Trek VI: The Undiscovered Country (1991)<br>
+                Star Trek: First Contact (1996)<br>
+                Star Trek: Generations (1994)<br>
+                Star Trek: Insurrection (1998)<br>
+                Star Trek: Nemesis (2002)<br>
+                Star Trek: The Motion Picture (1979)<br>
+                Star Wars: Episode I - The Phantom Menace (1999)<br>
+                Star Wars: Episode II - Attack of the Clones (2002)<br>
+                Star Wars: Episode III - Revenge of the Sith (2005)<br>
+                Star Wars: Episode IV - A New Hope (1977)<br>
+                Star Wars: Episode V - The Empire Strikes Back (1980)<br>
+                Star Wars: Episode VI - Return of the Jedi (1983)<br>
+                Stardust (2007)<br>
+                Stargate (1994)<br>
+                Starman (1984)<br>
+                Starship Troopers (1997)<br>
+                Starsky & Hutch (2004)<br>
+                State and Main (2000)<br>
+                Station Agent, The (2003)<br>
+                Step Brothers (2008)<br>
+                Stepford Wives, The (1975)<br>
+                Stepford Wives, The (2004)<br>
+                Stigmata (1999)<br>
+                Sting, The (1973)<br>
+                Stir of Echoes (1999)<br>
+                Stop! Or My Mom Will Shoot (1992)<br>
+                Straight Story, The (1999)<br>
+                Strange Brew (1983)<br>
+                Strange Days (1995)<br>
+                Stranger than Fiction (2006)<br>
+                Strangers on a Train (1951)<br>
+                Streetcar Named Desire, A (1951)<br>
+                Strictly Ballroom (1992)<br>
+                Stripes (1981)<br>
+                Striptease (1996)<br>
+                Stuart Little (1999)<br>
+                Substitute, The (1996)<br>
+                Sudden Death (1995)<br>
+                Suicide Kings (1997)<br>
+                Sum of All Fears, The (2002)<br>
+                Summer of Sam (1999)<br>
+                Sunset Blvd. (a.k.a. Sunset Boulevard) (1950)<br>
+                Sunshine (2007)<br>
+                Super Mario Bros. (1993)<br>
+                Super Size Me (2004)<br>
+                Super Troopers (2001)<br>
+                Superbad (2007)<br>
+                Superman (1978)<br>
+                Superman II (1980)<br>
+                Superman III (1983)<br>
+                Superman IV: The Quest for Peace (1987)<br>
+                Superman Returns (2006)<br>
+                Sweeney Todd: The Demon Barber of Fleet Street (2007)<br>
+                Sweet Hereafter, The (1997)<br>
+                Sweet Home Alabama (2002)<br>
+                Swingers (1996)<br>
+                Sword in the Stone, The (1963)<br>
+                Swordfish (2001)<br>
+                Sydney (Hard Eight) (1996)<br>
+                Syriana (2005)<br>
+                Take the Money and Run (1969)<br>
+                Taken (2008)<br>
+                Talented Mr. Ripley, The (1999)<br>
+                Tales from the Crypt Presents: Bordello of Blood (1996)<br>
+                Talk to Her (Hable con Ella) (2002)<br>
+                Talladega Nights: The Ballad of Ricky Bobby (2006)<br>
+                Tank Girl (1995)<br>
+                Tao of Steve, The (2000)<br>
+                Tarzan (1999)<br>
+                Taxi Driver (1976)<br>
+                Team America: World Police (2004)<br>
+                Teenage Mutant Ninja Turtles (1990)<br>
+                Teenage Mutant Ninja Turtles II: The Secret of the Ooze (1991)<br>
+                Teenage Mutant Ninja Turtles III (1993)<br>
+                Tequila Sunrise (1988)<br>
+                Terminal, The (2004)<br>
+                Terminator 2: Judgment Day (1991)<br>
+                Terminator 3: Rise of the Machines (2003)<br>
+                Terminator Salvation (2009)<br>
+                Terminator, The (1984)<br>
+                Terms of Endearment (1983)<br>
+                Texas Chainsaw Massacre, The (1974)<br>
+                Thank You for Smoking (2006)<br>
+                That Thing You Do! (1996)<br>
+                The Butterfly Effect (2004)<br>
+                The Count of Monte Cristo (2002)<br>
+                The Devil's Advocate (1997)<br>
+                The Machinist (2004)<br>
+                The Queen (2006)<br>
+                The Scorpion King (2002)<br>
+                Thelma & Louise (1991)<br>
+                There Will Be Blood (2007)<br>
+                There's Something About Mary (1998)<br>
+                Thin Blue Line, The (1988)<br>
+                Thin Red Line, The (1998)<br>
+                Thing, The (1982)<br>
+                Things to Do in Denver When You're Dead (1995)<br>
+                Thinner (1996)<br>
+                Third Man, The (1949)<br>
+                Thirteen Days (2000)<br>
+                Thirteen Ghosts (a.k.a. Thir13en Ghosts) (2001)<br>
+                Thirteenth Floor, The (1999)<br>
+                This Is Spinal Tap (1984)<br>
+                Thomas Crown Affair, The (1999)<br>
+                ?Three Amigos! (1986)<br>
+                Three Colors: Blue (Trois couleurs: Bleu) (1993)<br>
+                Three Colors: Red (Trois couleurs: Rouge) (1994)<br>
+                Three Colors: White (Trzy kolory: Bialy) (1994)<br>
+                Three Days of the Condor (3 Days of the Condor) (1975)<br>
+                Three Kings (1999)<br>
+                Three Men and a Baby (1987)<br>
+                Three Musketeers, The (1993)<br>
+                Thunderball (1965)<br>
+                Time Bandits (1981)<br>
+                Time Machine, The (2002)<br>
+                Time to Kill, A (1996)<br>
+                Timecop (1994)<br>
+                Tin Cup (1996)<br>
+                Titan A.E. (2000)<br>
+                Titanic (1997)<br>
+                To Catch a Thief (1955)<br>
+                To Die For (1995)<br>
+                To Kill a Mockingbird (1962)<br>
+                To Wong Foo, Thanks for Everything! Julie Newmar (1995)<br>
+                Tombstone (1993)<br>
+                Tommy Boy (1995)<br>
+                Tomorrow Never Dies (1997)<br>
+                Tootsie (1982)<br>
+                Top Gun (1986)<br>
+                Total Recall (1990)<br>
+                Touch of Evil (1958)<br>
+                Toy Story (1995)<br>
+                Toy Story 2 (1999)<br>
+                Toys (1992)<br>
+                Trading Places (1983)<br>
+                Traffic (2000)<br>
+                Training Day (2001)<br>
+                Trainspotting (1996)<br>
+                Transformers (2007)<br>
+                Transformers: Revenge of the Fallen (2009)<br>
+                Transporter 2 (2005)<br>
+                Transporter, The (2002)<br>
+                Treasure of the Sierra Madre, The (1948)<br>
+                Tremors (1990)<br>
+                Triplets of Belleville, The (Les triplettes de Belleville) (2003)<br>
+                Tron (1982)<br>
+                Tropic Thunder (2008)<br>
+                Troy (2004)<br>
+                True Lies (1994)<br>
+                True Romance (1993)<br>
+                Truman Show, The (1998)<br>
+                Truth About Cats & Dogs, The (1996)<br>
+                Turner & Hooch (1989)<br>
+                Twelfth Night (1996)<br>
+                Twelve Monkeys (a.k.a. 12 Monkeys) (1995)<br>
+                Twilight (2008)<br>
+                Twin Peaks: Fire Walk with Me (1992)<br>
+                Twins (1988)<br>
+                Twister (1996)<br>
+                Two Weeks Notice (2002)<br>
+                U.S. Marshals (1998)<br>
+                U-571 (2000)<br>
+                Ugly Truth, The (2009)<br>
+                Ultraviolet (2006)<br>
+                Unbearable Lightness of Being, The (1988)<br>
+                Unbreakable (2000)<br>
+                Uncle Buck (1989)<br>
+                Under Siege (1992)<br>
+                Under Siege 2: Dark Territory (1995)<br>
+                Underworld (2003)<br>
+                Underworld: Evolution (2006)<br>
+                Unforgiven (1992)<br>
+                Universal Soldier (1992)<br>
+                Untouchables, The (1987)<br>
+                Up (2009)<br>
+                Up Close and Personal (1996)<br>
+                Usual Suspects, The (1995)<br>
+                V for Vendetta (2006)<br>
+                Valkyrie (2008)<br>
+                Van Helsing (2004)<br>
+                Vanilla Sky (2001)<br>
+                Varsity Blues (1999)<br>
+                Vertical Limit (2000)<br>
+                Vertigo (1958)<br>
+                Very Bad Things (1998)<br>
+                Vicky Cristina Barcelona (2008)<br>
+                Victor/Victoria (1982)<br>
+                View to a Kill, A (1985)<br>
+                Village of the Damned (1995)<br>
+                Village, The (2004)<br>
+                Virgin Suicides, The (1999)<br>
+                Virtuosity (1995)<br>
+                Volcano (1997)<br>
+                Wag the Dog (1997)<br>
+                Waiting for Guffman (1996)<br>
+                Waiting... (2005)<br>
+                Waking Life (2001)<br>
+                Waking Ned Devine (a.k.a. Waking Ned) (1998)<br>
+                Walk in the Clouds, A (1995)<br>
+                Walk the Line (2005)<br>
+                Walk to Remember, A (2002)<br>
+                Wall Street (1987)<br>
+                Wallace & Gromit in The Curse of the Were-Rabbit (2005)<br>
+                Wallace & Gromit: A Close Shave (1995)<br>
+                Wallace & Gromit: The Best of Aardman Animation (1996)<br>
+                Wallace & Gromit: The Wrong Trousers (1993)<br>
+                WALL?E (2008)<br>
+                Wanted (2008)<br>
+                War of the Worlds (2005)<br>
+                War of the Worlds, The (1953)<br>
+                WarGames (1983)<br>
+                Watchmen (2009)<br>
+                Waterboy, The (1998)<br>
+                Waterworld (1995)<br>
+                Wayne's World (1992)<br>
+                Wayne's World 2 (1993)<br>
+                We Were Soldiers (2002)<br>
+                Wedding Crashers (2005)<br>
+                Wedding Date, The (2005)<br>
+                Wedding Planner, The (2001)<br>
+                Wedding Singer, The (1998)<br>
+                Weekend at Bernie's (1989)<br>
+                Weird Science (1985)<br>
+                Welcome to the Dollhouse (1995)<br>
+                Wes Craven's New Nightmare (Nightmare on Elm Street Part 7: Freddy's Finale, A) (1994)<br>
+                West Side Story (1961)<br>
+                Westworld (1973)<br>
+                Whale Rider (2002)<br>
+                What About Bob? (1991)<br>
+                What Dreams May Come (1998)<br>
+                What Lies Beneath (2000)<br>
+                What Women Want (2000)<br>
+                What's Eating Gilbert Grape (1993)<br>
+                What's Love Got to Do with It? (1993)<br>
+                When a Man Loves a Woman (1994)<br>
+                When Harry Met Sally... (1989)<br>
+                While You Were Sleeping (1995)<br>
+                White Men Can't Jump (1992)<br>
+                White Squall (1996)<br>
+                Who Framed Roger Rabbit? (1988)<br>
+                Whole Nine Yards, The (2000)<br>
+                Wild Bunch, The (1969)<br>
+                Wild Things (1998)<br>
+                Wild Wild West (1999)<br>
+                William Shakespeare's A Midsummer Night's Dream (1999)<br>
+                William Shakespeare's Romeo + Juliet (1996)<br>
+                Willow (1988)<br>
+                Willy Wonka & the Chocolate Factory (1971)<br>
+                Wings of Desire (Himmel ?ber Berlin, Der) (1987)<br>
+                Winnie the Pooh and the Blustery Day (1968)<br>
+                Witches of Eastwick, The (1987)<br>
+                Witness (1985)<br>
+                Wizard of Oz, The (1939)<br>
+                Wolf (1994)<br>
+                Wonder Boys (2000)<br>
+                Working Girl (1988)<br>
+                World Is Not Enough, The (1999)<br>
+                Wrestler, The (2008)<br>
+                Wyatt Earp (1994)<br>
+                X2: X-Men United (2003)<br>
+                X-Files: Fight the Future, The (1998)<br>
+                X-Men (2000)<br>
+                X-Men Origins: Wolverine (2009)<br>
+                X-Men: The Last Stand (2006)<br>
+                xXx (2002)<br>
+                Yellow Submarine (1968)<br>
+                Yes Man (2008)<br>
+                Yojimbo (1961)<br>
+                You Don't Mess with the Zohan (2008)<br>
+                You Only Live Twice (1967)<br>
+                Young Frankenstein (1974)<br>
+                Young Guns (1988)<br>
+                Young Guns II (1990)<br>
+                Young Sherlock Holmes (1985)<br>
+                You've Got Mail (1998)<br>
+                Zack and Miri Make a Porno (2008)<br>
+                Zero Effect (1998)<br>
+                Zodiac (2007)<br>
+                Zoolander (2001)<br>
+            </div>
+            <br><br>
+            <div class="in">
+                <button class="but">Get Predictions</button>
+            </div>
+        </form>
+        <div class="result">
+            {{not_found}}
+        </div>
+    </body>
+</html>
